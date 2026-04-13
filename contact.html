@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact The Gardens At West Green</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      color: #2c2c2a;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .page-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .page-sub {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #5f5e5a;
+      max-width: 620px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+
+    .divider {
+      border: none;
+      border-top: 0.5px solid #d3d1c7;
+      margin-bottom: 2.5rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 680px) {
+      .two-col { grid-template-columns: 1fr; }
+      .sidebar { order: -1; }
+    }
+
+    /* ── Form fields ── */
+    .field { margin-bottom: 1.25rem; }
+
+    label {
+      display: block;
+      font-size: 0.88rem;
+      font-family: Georgia, serif;
+      color: #2c2c2a;
+      margin-bottom: 0.4rem;
+    }
+
+    .req { color: #c0725a; margin-left: 2px; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      border: 0.5px solid #b4b2a9;
+      border-radius: 5px;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.95rem;
+      font-family: Georgia, serif;
+      color: #2c2c2a;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      border-color: #b08d75;
+      box-shadow: 0 0 0 2px rgba(176, 141, 117, 0.15);
+    }
+
+    input.error, textarea.error {
+      border-color: #c0725a;
+    }
+
+    .err-msg {
+      font-size: 0.78rem;
+      color: #c0725a;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    /* ── Date picker ── */
+    .date-wrap { position: relative; }
+    .date-wrap input { padding-right: 2.2rem; cursor: pointer; }
+    .date-icon {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #888780;
+      font-size: 14px;
+    }
+
+    /* ── Radio buttons ── */
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+
+    .radio-group input[type="radio"] {
+      accent-color: #b08d75;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* ── Textarea ── */
+    textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    /* ── Other text input ── */
+    .other-wrap { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    #other-text {
+      width: 180px;
+      display: none;
+      padding: 0.3rem 0.55rem;
+      font-size: 0.85rem;
+    }
+
+    /* ── Submit button ── */
+    .submit-btn {
+      margin-top: 1.5rem;
+      background: #888780;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 2.2rem;
+      font-size: 0.85rem;
+      font-family: Georgia, serif;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .submit-btn:hover { background: #5f5e5a; }
+
+    /* ── Success message ── */
+    .success-msg {
+      display: none;
+      background: #f0f7f0;
+      border: 0.5px solid #b5d4b5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      color: #3b6d3b;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar-icon-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .s-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #f4e8e2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .s-icon svg {
+      width: 17px;
+      height: 17px;
+      fill: #b08d75;
+    }
+
+    .s-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #2c2c2a;
+      margin-bottom: 0.25rem;
+    }
+
+    .s-val {
+      font-size: 0.83rem;
+      color: #5f5e5a;
+      line-height: 1.65;
+    }
+
+    .s-val a {
+      color: #b08d75;
+      text-decoration: none;
+    }
+
+    .s-val a:hover { text-decoration: underline; }
+
+    .connect-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 1.5rem 0 1rem;
+      font-size: 0.8rem;
+      color: #888780;
+    }
+
+    .connect-divider::before,
+    .connect-divider::after {
+      content: '';
+      flex: 1;
+      border-top: 0.5px solid #d3d1c7;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .social-icons a.fb { background: #3b5998; }
+    .social-icons a.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+    /* ── Flatpickr theme tweaks ── */
+    .flatpickr-calendar {
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      font-family: Georgia, serif;
+    }
+
+    .flatpickr-day.selected,
+    .flatpickr-day.selected:hover {
+      background: #b08d75;
+      border-color: #b08d75;
+    }
+
+    .flatpickr-day:hover {
+      background: #f4e8e2;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <h1 class="page-title">Contact The Gardens</h1>
+  <p class="page-sub">Thank you for your interest in our wedding venue. Please complete the form below, so we can quickly provide you with information about The Gardens.</p>
+  <hr class="divider">
+
+  <div class="two-col">
+
+    <!-- ── Form ── -->
+    <div>
+      <form id="contact-form" name="contact" method="POST" data-netlify="true" novalidate>
+        <input type="hidden" name="form-name" value="contact">
+
+        <div class="field">
+          <label for="full_name">Full Name <span class="req">*</span></label>
+          <input type="text" name="full_name" id="full_name" placeholder="Your full name">
+          <div class="err-msg" id="err-full_name">Please enter your name.</div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input type="email" name="email" id="email" placeholder="you@email.com">
+          <div class="err-msg" id="err-email">Please enter a valid email address.</div>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone <span class="req">*</span></label>
+          <input type="tel" name="phone" id="phone" placeholder="(210) 000-0000">
+          <div class="err-msg" id="err-phone">Please enter a phone number.</div>
+        </div>
+
+        <div class="field">
+          <label for="wedding_date">Wedding Date <span class="req">*</span></label>
+          <div class="date-wrap">
+            <input type="text" name="wedding_date" id="wedding_date" placeholder="Select a date" readonly>
+            <span class="date-icon">&#128197;</span>
+          </div>
+          <div class="err-msg" id="err-wedding_date">Please select a wedding date.</div>
+        </div>
+
+        <div class="field">
+          <label>Approximate Guest Count</label>
+          <div class="radio-group">
+            <label><input type="radio" name="guest_count" value="Under 40"> Under 40</label>
+            <label><input type="radio" name="guest_count" value="40-60"> 40–60</label>
+            <label><input type="radio" name="guest_count" value="60-80"> 60–80</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="info_about">I would like information about:</label>
+          <textarea name="info_about" id="info_about" placeholder="Tell us what you'd like to know..."></textarea>
+        </div>
+
+        <div class="field">
+          <label>How did you hear about us? <span class="req">*</span></label>
+          <div class="radio-group" id="referral-group">
+            <label><input type="radio" name="referral" value="Wedding Wire"> Wedding Wire</label>
+            <label><input type="radio" name="referral" value="The Knot App"> The Knot App</label>
+            <label><input type="radio" name="referral" value="Google Search"> Google Search</label>
+            <label><input type="radio" name="referral" value="Online Wedding Directory"> Online Wedding Directory</label>
+            <label><input type="radio" name="referral" value="Friend"> Friend</label>
+            <label><input type="radio" name="referral" value="Wedding Coordinator"> Wedding Coordinator</label>
+            <label class="other-wrap">
+              <input type="radio" name="referral" value="Other" id="referral-other-radio"> Other
+              <input type="text" name="referral_other" id="other-text" placeholder="Please specify">
+            </label>
+          </div>
+          <div class="err-msg" id="err-referral">Please select how you heard about us.</div>
+        </div>
+
+        <button type="submit" class="submit-btn">SEND REQUEST</button>
+      </form>
+
+      <div class="success-msg" id="success-msg">
+        ✓ Thank you! We've received your message and will be in touch soon.
+      </div>
+    </div>
+
+    <!-- ── Sidebar ── -->
+    <div class="sidebar">
+
+      <div class="sidebar-icon-row">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+        </div>
+        <div>
+          <div class="s-label">Contact Us</div>
+          <div class="s-val">
+            <a href="tel:2106989191">210-698-9191</a><br>
+            <a href="mailto:weddings@thegardensatwestgreen.com">weddings@thegardensatwestgreen.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-icon-row">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div>
+          <div class="s-label">Mailing Address</div>
+          <div class="s-val">
+            The Gardens At West Green<br>
+            21650 Milsa Dr<br>
+            San Antonio, TX 78256
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-icon-row">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div>
+          <div class="s-label">Our Location</div>
+          <div class="s-val">
+            The Gardens At West Green<br>
+            21650 Milsa Dr<br>
+            San Antonio, TX 78256
+          </div>
+        </div>
+      </div>
+
+      <div class="connect-divider">Connect</div>
+      <div class="social-icons">
+        <a href="https://facebook.com/thegardensatwestgreen" target="_blank" rel="noopener" class="fb">f</a>
+        <a href="https://instagram.com/thegardensatwestgreen" target="_blank" rel="noopener" class="ig">&#9679;</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  // Date picker
+  flatpickr('#wedding_date', {
+    minDate: 'today',
+    dateFormat: 'F j, Y',
+    disableMobile: false
+  });
+
+  // Show/hide "Other" text input
+  document.querySelectorAll('input[name="referral"]').forEach(function(r) {
+    r.addEventListener('change', function() {
+      var otherText = document.getElementById('other-text');
+      otherText.style.display = document.getElementById('referral-other-radio').checked ? 'inline-block' : 'none';
+    });
+  });
+
+  // Validation helpers
+  function showErr(id, show) {
+    var errEl = document.getElementById('err-' + id);
+    var inputEl = document.getElementById(id);
+    if (errEl) errEl.style.display = show ? 'block' : 'none';
+    if (inputEl) {
+      if (show) inputEl.classList.add('error');
+      else inputEl.classList.remove('error');
+    }
+  }
+
+  // Form submission
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var valid = true;
+
+    // Required text/email/tel fields
+    ['full_name', 'email', 'phone', 'wedding_date'].forEach(function(id) {
+      var val = document.getElementById(id).value.trim();
+      var isEmpty = !val;
+      var isBadEmail = id === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+      showErr(id, isEmpty || isBadEmail);
+      if (isEmpty || isBadEmail) valid = false;
+    });
+
+    // Referral required
+    var ref = document.querySelector('input[name="referral"]:checked');
+    var refErr = document.getElementById('err-referral');
+    if (!ref) {
+      refErr.style.display = 'block';
+      valid = false;
+    } else {
+      refErr.style.display = 'none';
+    }
+
+    if (!valid) return;
+
+    // Submit to Netlify
+    var form = this;
+    var data = new FormData(form);
+
+    fetch('/', { method: 'POST', body: data })
+      .then(function() {
+        form.style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+      })
+      .catch(function() {
+        // Show success anyway — handles local preview
+        form.style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+      });
+  });
+</script>
+
+</body>
+</html>

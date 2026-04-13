@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQs — The Gardens at West Green | San Antonio Wedding Venue</title>
+  <meta name="description" content="Frequently asked questions about The Gardens at West Green — capacity, catering, deposits, parking, vendors, and more. Call 210-698-9191." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:       #b08d75;
+      --accent-light: #c9a98e;
+      --accent-dark:  #8a6d58;
+      --cream:        #faf8f5;
+      --warm-white:   #f5f2ed;
+      --stone:        #e8e2da;
+      --muted:        #9c9088;
+      --text:         #2c2420;
+      --text-light:   #5a504a;
+      --ff-serif:     'Cormorant Garamond', Georgia, serif;
+      --ff-sans:      'Jost', sans-serif;
+      --nav-h:        80px;
+      --section-pad:  clamp(60px, 8vw, 110px);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--ff-sans); background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 90%; max-width: 1060px; margin-inline: auto; }
+
+    .btn { display: inline-block; font-family: var(--ff-sans); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; padding: 14px 36px; border: 1px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; transition: background 0.3s, color 0.3s; }
+    .btn:hover { background: var(--accent); color: #fff; }
+    .btn--filled { background: var(--accent); color: #fff; }
+    .btn--filled:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .btn--white { border-color: rgba(255,255,255,0.7); color: #fff; }
+    .btn--white:hover { background: #fff; color: var(--text); }
+
+    .section-label { display: block; font-family: var(--ff-sans); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .divider { width: 48px; height: 1px; background: var(--accent); margin: 20px auto; }
+
+    /* ─── Nav ───────────────────────────────────────────────── */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.4s, box-shadow 0.4s; }
+    .header-topbar { background: var(--text); color: rgba(255,255,255,0.75); font-size: 0.72rem; letter-spacing: 0.08em; padding: 7px 0; text-align: center; display: flex; justify-content: center; gap: 32px; }
+    .header-topbar a { color: rgba(255,255,255,0.75); transition: color 0.2s; }
+    .header-topbar a:hover { color: var(--accent-light); }
+    .nav-wrap { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); padding: 0 5%; background: var(--cream); }
+    .site-header.scrolled { background: rgba(250,248,245,0.97); box-shadow: 0 1px 24px rgba(44,36,32,0.08); }
+    .site-header.scrolled .header-topbar { display: none; }
+    .nav-logo { display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.1; }
+    .nav-logo img { width: 44px; margin-bottom: 4px; }
+    .nav-logo-text { font-family: var(--ff-serif); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); transition: color 0.2s; position: relative; }
+    .nav-links a.active, .nav-links a:hover { color: var(--accent); }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
+    .nav-links a.active::after, .nav-links a:hover::after { width: 100%; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+    .nav-toggle span { display: block; width: 26px; height: 1px; background: var(--text); transition: transform 0.3s, opacity 0.3s; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    .nav-mobile { display: none; flex-direction: column; background: var(--cream); border-top: 1px solid var(--stone); padding: 16px 0; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { padding: 12px 5%; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); border-bottom: 1px solid var(--stone); }
+    .nav-mobile a:last-child { border-bottom: none; }
+    @media (max-width: 820px) { .nav-links { display: none; } .nav-toggle { display: flex; } .header-topbar { gap: 16px; font-size: 0.65rem; } }
+
+    /* ─── Page Hero ─────────────────────────────────────────── */
+    .page-hero {
+      padding-top: calc(var(--nav-h) + 36px);
+      padding-bottom: var(--section-pad);
+      text-align: center;
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--stone);
+    }
+    .page-hero-ornament { width: 48px; margin: 0 auto 20px; opacity: 0.45; }
+    .page-hero h1 { font-family: var(--ff-serif); font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 16px; }
+    .page-hero h1 em { font-style: italic; color: var(--accent); }
+    .page-hero p { font-size: 0.9rem; color: var(--text-light); max-width: 520px; margin: 0 auto; }
+
+    /* ─── Jump Nav ──────────────────────────────────────────── */
+    .jump-nav {
+      background: #fff;
+      border-bottom: 1px solid var(--stone);
+      padding: 0;
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 50;
+    }
+    .jump-nav-inner {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .jump-nav-inner::-webkit-scrollbar { display: none; }
+    .jump-nav a {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 14px 22px;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .jump-nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ─── FAQ Content ───────────────────────────────────────── */
+    .faq-content {
+      padding: var(--section-pad) 0;
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* Sticky sidebar */
+    .faq-sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 52px);
+    }
+    .faq-sidebar-title {
+      font-family: var(--ff-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--stone);
+    }
+    .faq-sidebar nav { display: flex; flex-direction: column; gap: 2px; }
+    .faq-sidebar nav a {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      padding: 7px 12px;
+      border-left: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .faq-sidebar nav a:hover,
+    .faq-sidebar nav a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+      background: rgba(176,141,117,0.06);
+    }
+
+    /* FAQ groups */
+    .faq-groups { display: flex; flex-direction: column; gap: 64px; }
+
+    .faq-group {}
+    .faq-group-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--stone);
+    }
+    .faq-group-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      background: var(--warm-white);
+      border: 1px solid var(--stone);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .faq-group-icon svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
+    .faq-group-title {
+      font-family: var(--ff-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    /* Individual Q&A */
+    .faq-items { display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(232,226,218,0.7);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-q {
+      font-family: var(--ff-serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.85;
+      max-width: 640px;
+    }
+    .faq-a a { color: var(--accent); border-bottom: 1px solid rgba(176,141,117,0.4); transition: border-color 0.2s; }
+    .faq-a a:hover { border-bottom-color: var(--accent); }
+
+    .faq-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(176,141,117,0.1);
+      padding: 3px 10px;
+      margin-top: 4px;
+      width: fit-content;
+    }
+
+    @media (max-width: 820px) {
+      .faq-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .faq-sidebar { display: none; }
+      .jump-nav { display: block; }
+    }
+    @media (min-width: 821px) {
+      .jump-nav { display: none; }
+    }
+
+    /* ─── Still Have Questions ──────────────────────────────── */
+    .questions-cta {
+      background: var(--warm-white);
+      border-top: 1px solid var(--stone);
+      border-bottom: 1px solid var(--stone);
+      padding: var(--section-pad) 0;
+      text-align: center;
+    }
+    .questions-cta h2 { font-family: var(--ff-serif); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; margin-bottom: 12px; }
+    .questions-cta h2 em { font-style: italic; color: var(--accent); }
+    .questions-cta p { color: var(--text-light); font-size: 0.9rem; max-width: 460px; margin: 0 auto 32px; }
+    .contact-options { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+    .contact-option { display: flex; align-items: center; gap: 12px; padding: 18px 28px; background: #fff; border: 1px solid var(--stone); transition: border-color 0.2s; }
+    .contact-option:hover { border-color: var(--accent); }
+    .contact-option svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+    .contact-option-text {}
+    .contact-option-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .contact-option-value { font-family: var(--ff-serif); font-size: 1.05rem; color: var(--text); }
+
+    /* ─── CTA Band ──────────────────────────────────────────── */
+    .cta-band { background: var(--accent); padding: 52px 0; text-align: center; }
+    .cta-band h2 { font-family: var(--ff-serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 300; color: #fff; margin-bottom: 12px; }
+    .cta-band p { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 28px; }
+    .cta-band-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    .site-footer { background: var(--text); color: rgba(255,255,255,0.65); }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; padding: 72px 0 56px; }
+    .footer-logo { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .footer-logo img { width: 44px; filter: invert(1); opacity: 0.8; }
+    .footer-logo-text { font-family: var(--ff-serif); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85); line-height: 1.3; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.75; max-width: 280px; }
+    .footer-socials { display: flex; gap: 12px; margin-top: 20px; }
+    .footer-socials a { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.65); transition: border-color 0.2s, color 0.2s; }
+    .footer-socials a:hover { border-color: var(--accent-light); color: var(--accent-light); }
+    .footer-socials svg { width: 16px; height: 16px; fill: currentColor; }
+    .footer-col h4 { font-family: var(--ff-sans); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { font-size: 0.85rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent-light); }
+    .footer-col address { font-style: normal; font-size: 0.85rem; line-height: 1.9; }
+    .footer-col address a { display: block; transition: color 0.2s; }
+    .footer-col address a:hover { color: var(--accent-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; flex-wrap: wrap; gap: 12px; }
+    @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; } }
+    @media (max-width: 560px) { .footer-top { grid-template-columns: 1fr; gap: 32px; padding: 48px 0 40px; } .footer-bottom { flex-direction: column; text-align: center; } }
+
+    /* ─── Reveal ────────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══════════════════════════════════════════════ -->
+  <header class="site-header" id="site-header">
+    <div class="header-topbar">
+      <a href="tel:2106989191">☎ 210-698-9191</a>
+      <a href="mailto:weddings@thegardensatwestgreen.com">✉ weddings@thegardensatwestgreen.com</a>
+    </div>
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo" aria-label="The Gardens at West Green — Home">
+        <img src="images/brand-mark.png" alt="" aria-hidden="true" />
+        <span class="nav-logo-text">The Gardens<br>at West Green</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="venues.html">Venues</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="faq.html" class="active">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
+      <a href="about.html">About</a>
+      <a href="venues.html">Venues</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+
+  <!-- ═══ PAGE HERO ════════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="container">
+      <img src="images/brand-mark.png" alt="" class="page-hero-ornament" aria-hidden="true" />
+      <span class="section-label">Frequently Asked Questions</span>
+      <h1>Everything You<br><em>Need to Know</em></h1>
+      <div class="divider"></div>
+      <p>Common questions about The Gardens at West Green — answered plainly so you can plan with confidence.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══ MOBILE JUMP NAV (hidden on desktop) ══════════════════ -->
+  <div class="jump-nav" aria-label="Jump to section">
+    <div class="jump-nav-inner container">
+      <a href="#venue">The Venue</a>
+      <a href="#catering">Food &amp; Drink</a>
+      <a href="#booking">Booking</a>
+      <a href="#day-of">Day Of</a>
+      <a href="#vendors">Vendors &amp; Music</a>
+    </div>
+  </div>
+
+
+  <!-- ═══ FAQ CONTENT ══════════════════════════════════════════ -->
+  <section class="faq-content">
+    <div class="container">
+      <div class="faq-layout">
+
+        <!-- Sticky sidebar (desktop only) -->
+        <aside class="faq-sidebar" aria-label="FAQ categories">
+          <div class="faq-sidebar-title">Browse by Topic</div>
+          <nav>
+            <a href="#venue">The Venue</a>
+            <a href="#catering">Food &amp; Drink</a>
+            <a href="#booking">Booking &amp; Payment</a>
+            <a href="#day-of">Day-of Details</a>
+            <a href="#vendors">Vendors &amp; Music</a>
+          </nav>
+        </aside>
+
+        <!-- FAQ groups -->
+        <div class="faq-groups">
+
+          <!-- GROUP 1: The Venue -->
+          <div class="faq-group reveal" id="venue">
+            <div class="faq-group-header">
+              <div class="faq-group-icon">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <h2 class="faq-group-title">The Venue</h2>
+            </div>
+            <div class="faq-items">
+              <div class="faq-item">
+                <p class="faq-q">What is your maximum capacity?</p>
+                <p class="faq-a">Our maximum capacity is <strong>80 people</strong>. All packages include up to 60 guests, with additional guests available at $15 per person up to the maximum.</p>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">Do you have onsite parking?</p>
+                <p class="faq-a">Yes — our onsite parking easily accommodates up to <strong>52 vehicles</strong>. Additional parking at the back of the property is also available for vendors.</p>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">Will The Gardens still be green for a winter wedding?</p>
+                <p class="faq-a">Yes! The Gardens at West Green is composed of <strong>evergreen trees and shrubs</strong>, so it looks beautiful all year round — no matter the season.</p>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">Do I need an appointment to tour?</p>
+                <p class="faq-a">Yes, tours are by appointment. We can schedule as late as <strong>6:30 pm Monday through Thursday</strong>. Friday, Saturday, and Sunday appointments are based on availability and are scheduled around events already on the calendar.</p>
+                <span class="faq-tag">Schedule via Contact page</span>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">What other events do you host besides weddings?</p>
+                <p class="faq-a">We only host <strong>weddings</strong>. This means our full attention and experience is always focused on making your wedding day perfect.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- GROUP 2: Food & Drink -->
+          <div class="faq-group reveal" id="catering">
+            <div class="faq-group-header">
+              <div class="faq-group-icon">
+                <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+              </div>
+              <h2 class="faq-group-title">Food &amp; Drink</h2>
+            </div>
+            <div class="faq-items">
+              <div class="faq-item">
+                <p class="faq-q">Do you allow outside catering?</p>
+                <p class="faq-a">Yes — you are welcome to bring in the caterer of your choice. We want your menu to reflect your vision, not ours.</p>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">Can I bring my own drinks and alcoholic beverages?</p>
+                <p class="faq-a">Yes, you may bring in your own drinks and alcoholic beverages. However, we do require that you use a <strong>TABC licensed and insured bartending service</strong> from our vendor list to serve your guests.</p>
+                <span class="faq-tag">See our Vendor List for approved bartenders</span>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">Are you pet friendly?</p>
+                <p class="faq-a">Yes, we love your fur babies! Best practice is to have them <strong>participate in the ceremony</strong>, then be taken home by a designated pet sitter for the reception.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- GROUP 3: Booking & Payment -->
+          <div class="faq-group reveal" id="booking">
+            <div class="faq-group-header">
+              <div class="faq-group-icon">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <h2 class="faq-group-title">Booking &amp; Payment</h2>
+            </div>
+            <div class="faq-items">
+              <div class="faq-item">
+                <p class="faq-q">What is required to reserve my wedding date?</p>
+                <p class="faq-a">A <strong>deposit of 50%</strong> of your base package price is required to reserve your date. This payment may be split into two consecutive monthly payments.</p>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">When is the final balance due?</p>
+                <p class="faq-a">The final balance of your base package price is due <strong>4 weeks prior</strong> to your event.</p>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">When is my final guest count due?</p>
+                <p class="faq-a">Your final guest count is due <strong>2 weeks before your event</strong>. Any guests over your package's included count will be billed at that time.</p>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">Can I reserve and pay my deposit online?</p>
+                <p class="faq-a">Yes! We can send an <strong>electronic contract and invoice</strong> directly to your email address. Once the document is signed and payment is submitted, your date is officially reserved.</p>
+                <span class="faq-tag">Fully paperless &amp; easy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GROUP 4: Day-of Details -->
+          <div class="faq-group reveal" id="day-of">
+            <div class="faq-group-header">
+              <div class="faq-group-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <h2 class="faq-group-title">Day-of Details</h2>
+            </div>
+            <div class="faq-items">
+              <div class="faq-item">
+                <p class="faq-q">How much time is included in my package?</p>
+                <p class="faq-a">Most packages include approximately <strong>8 hours total</strong>: up to 3 hours of early arrival for setup, 4–6 hours of event time (depending on your package), and 1 hour after the reception to gather personal belongings and depart.</p>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">Can I add additional hours?</p>
+                <p class="faq-a">Yes. You may add <strong>pre-arrival hours at $100 per hour</strong> and additional event hours at <strong>$495 per hour</strong>. A half-hour extension is also available for $250 (Mon–Thu package).</p>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">What is included in my rental package?</p>
+                <p class="faq-a">Your package includes: all chairs for the ceremony and reception, 60-inch round dining tables, linens, sign-in table, cake table, sweetheart table, gift table, wooden arch or floral candelabras, bar table area, easels, and <strong>two dressing rooms</strong> — plus full setup of everything we provide.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- GROUP 5: Vendors & Music -->
+          <div class="faq-group reveal" id="vendors">
+            <div class="faq-group-header">
+              <div class="faq-group-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              </div>
+              <h2 class="faq-group-title">Vendors &amp; Music</h2>
+            </div>
+            <div class="faq-items">
+              <div class="faq-item">
+                <p class="faq-q">Can I bring in my own vendors?</p>
+                <p class="faq-a">Yes! You may bring in a vendor of your preference for most services — <strong>except the bartending service and DJ</strong>, which must come from our vetted vendor list.</p>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">Can I hire my own DJ?</p>
+                <p class="faq-a">We require that you hire a DJ from our <strong>Vendor List</strong>. We carefully vet every DJ on the list to ensure a professional, worry-free event at a reasonable price. We're always adding new DJs, so check back often.</p>
+                <span class="faq-tag">DJ must be from our vendor list</span>
+              </div>
+              <div class="faq-item">
+                <p class="faq-q">Do you allow live bands?</p>
+                <p class="faq-a">We do not allow full bands. However, you are absolutely welcome to hire <strong>acoustical ensembles, string ensembles, mariachis, pianists, and guitarists</strong> — they all create a beautiful atmosphere for ceremonies and cocktail hours.</p>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /faq-groups -->
+      </div><!-- /faq-layout -->
+    </div>
+  </section>
+
+
+  <!-- ═══ STILL HAVE QUESTIONS ═════════════════════════════════ -->
+  <section class="questions-cta">
+    <div class="container reveal">
+      <span class="section-label">We're Happy to Help</span>
+      <h2>Still Have <em>Questions?</em></h2>
+      <p>Don't see your question here? Reach out — Karen is happy to answer anything before you book.</p>
+      <div class="contact-options">
+        <a href="tel:2106989191" class="contact-option">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.15h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6.14 6.14l1.27-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div class="contact-option-text">
+            <div class="contact-option-label">Call Us</div>
+            <div class="contact-option-value">210-698-9191</div>
+          </div>
+        </a>
+        <a href="mailto:weddings@thegardensatwestgreen.com" class="contact-option">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div class="contact-option-text">
+            <div class="contact-option-label">Email Us</div>
+            <div class="contact-option-value">weddings@thegardensatwestgreen.com</div>
+          </div>
+        </a>
+        <a href="contact.html" class="contact-option">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="contact-option-text">
+            <div class="contact-option-label">Schedule a Tour</div>
+            <div class="contact-option-value">Contact Form</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ CTA BAND ══════════════════════════════════════════════ -->
+  <div class="cta-band">
+    <div class="container reveal">
+      <h2>Ready to See the Gardens in Person?</h2>
+      <p>Book a tour and fall in love with your future wedding venue.</p>
+      <div class="cta-band-btns">
+        <a href="contact.html" class="btn btn--white">Request a Tour</a>
+        <a href="pricing.html" class="btn btn--white">View Pricing</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/brand-mark.png" alt="The Gardens at West Green mark" />
+            <span class="footer-logo-text">The Gardens<br>at West Green</span>
+          </div>
+          <p>San Antonio's most unique small wedding venue — specializing in intimate outdoor garden weddings for up to 80 guests.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/thegardesatwestgreen" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/thegardesatwestgreen" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="venues.html">Venues &amp; Spaces</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="venues.html">Ceremony Venues</a></li>
+            <li><a href="venues.html">Reception Spaces</a></li>
+            <li><a href="pricing.html">Wedding Packages</a></li>
+            <li><a href="faq.html">Vendor Information</a></li>
+            <li><a href="contact.html">Tour the Venue</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <address>
+            21650 Milsa Dr<br>
+            San Antonio, TX 78256<br><br>
+            <a href="tel:2106989191">210-698-9191</a>
+            <a href="mailto:weddings@thegardensatwestgreen.com">weddings@<br>thegardensatwestgreen.com</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 The Gardens at West Green LLC. All rights reserved.</span>
+        <span>Small Garden Wedding Venue in San Antonio &mdash; Affordable Wedding Venues</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Sticky header
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Mobile nav
+    const toggle = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('nav-mobile');
+    toggle.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => obs.observe(el));
+
+    // Sidebar active state on scroll
+    const groups = document.querySelectorAll('.faq-group');
+    const sideLinks = document.querySelectorAll('.faq-sidebar nav a');
+    const sideObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          sideLinks.forEach(l => {
+            l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px' });
+    groups.forEach(g => sideObs.observe(g));
+  </script>
+
+</body>
+</html>
